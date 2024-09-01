@@ -1,0 +1,87 @@
+.sidebar {
+    display: flex;
+  }
+  
+  .sidebar-container {
+    width: 18rem; 
+    background-color: black;
+    height: 100vh;
+    padding: 1.25rem;
+    padding-top: 2rem;
+    position: relative;
+    transition: width 0.3s ease;
+  }
+  
+  .sidebar-container.closed {
+    width: 5rem; 
+  }
+  
+  .toggle-btn {
+    position: absolute;
+    cursor: pointer;
+    right: -1.5rem;
+    top: 2rem;
+    width: 1.75rem;
+    border: 2px solid #6e2c6c; 
+    border-radius: 50%;
+  }
+  
+  .header {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+  
+  .smiley-icon {
+    cursor: pointer;
+    transition: transform 0.5s ease;
+  }
+  
+  .rotate {
+    transform: rotate(360deg);
+  }
+  
+  .title {
+    color: white;
+    font-weight: medium;
+    font-size: 1.25rem;
+    transition: opacity 0.2s ease;
+  }
+  
+  .title.hidden {
+    opacity: 0;
+  }
+  
+  .menu-list {
+    padding-top: 1.5rem;
+  }
+  
+  .menu-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    color: #d1d1d1;
+    font-size: 0.875rem;
+  }
+  
+  .menu-item:hover {
+    background-color: #1a1a1a; 
+  }
+  
+  .menu-item.active {
+    background-color: #1a1a1a; 
+  }
+  
+  .menu-item.gap {
+    margin-top: 2.25rem;
+  }
+  
+  .menu-title {
+    transition: opacity 0.2s ease;
+  }
+  
+  .menu-title.hidden {
+    opacity: 0;
+  }
