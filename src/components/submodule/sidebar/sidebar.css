@@ -1,87 +1,102 @@
+/* Ensure the sidebar container is positioned correctly */
 .sidebar {
-    display: flex;
-  }
-  
-  .sidebar-container {
-    width: 18rem; 
-    background-color: black;
-    height: 100vh;
-    padding: 1.25rem;
-    padding-top: 2rem;
-    position: relative;
-    transition: width 0.3s ease;
-  }
-  
-  .sidebar-container.closed {
-    width: 5rem; 
-  }
-  
-  .toggle-btn {
-    position: absolute;
-    cursor: pointer;
-    right: -1.5rem;
-    top: 2rem;
-    width: 1.75rem;
-    border: 2px solid #6e2c6c; 
-    border-radius: 50%;
-  }
-  
-  .header {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-  }
-  
-  .smiley-icon {
-    cursor: pointer;
-    transition: transform 0.5s ease;
-  }
-  
-  .rotate {
-    transform: rotate(360deg);
-  }
-  
-  .title {
-    color: white;
-    font-weight: medium;
-    font-size: 1.25rem;
-    transition: opacity 0.2s ease;
-  }
-  
-  .title.hidden {
-    opacity: 0;
-  }
-  
-  .menu-list {
-    padding-top: 1.5rem;
-  }
-  
-  .menu-item {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 0.5rem;
-    cursor: pointer;
-    color: #d1d1d1;
-    font-size: 0.875rem;
-  }
-  
-  .menu-item:hover {
-    background-color: #1a1a1a; 
-  }
-  
-  .menu-item.active {
-    background-color: #1a1a1a; 
-  }
-  
-  .menu-item.gap {
-    margin-top: 2.25rem;
-  }
-  
-  .menu-title {
-    transition: opacity 0.2s ease;
-  }
-  
-  .menu-title.hidden {
-    opacity: 0;
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh; /* Full viewport height */
+  width: 18rem; /* Initial width */
+  background-color: black;
+  padding: 1.25rem;
+  padding-top: 2rem;
+  transition: width 0.3s ease; /* Transition for width change */
+  z-index: 1000; /* Ensure it sits on top of other content */
+}
+
+/* Sidebar closed state */
+.sidebar.closed {
+  width: 5rem; /* Width when closed */
+}
+
+/* Position the toggle button */
+.toggle-btn {
+  position: absolute;
+  cursor: pointer;
+  right: -1.5rem; /* Button positioned outside the sidebar */
+  top: 2rem;
+  width: 1.75rem;
+  border: 2px solid #6e2c6c;
+  border-radius: 50%;
+  background-color: white; /* Optional: to make the button visible */
+  z-index: 1001; /* Ensure the button is on top of the sidebar */
+}
+
+/* Ensure the button is visible and clickable when sidebar is closing */
+.sidebar.closed .toggle-btn {
+  right: -2.5rem; /* Adjust as needed to stay outside the sidebar */
+}
+
+/* Header styling */
+.header {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+/* Rotate the icon when sidebar is open */
+.smiley-icon.rotate {
+  transform: rotate(360deg);
+}
+
+/* Title styling */
+.title {
+  color: white;
+  font-weight: medium;
+  font-size: 1.25rem;
+  transition: opacity 0.2s ease; /* Transition for hiding/showing title */
+}
+
+/* Hide title when sidebar is closed */
+.title.hidden {
+  opacity: 0;
+}
+
+/* Menu list styling */
+.menu-list {
+  padding-top: 1.5rem;
+}
+
+/* Menu item styling */
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  color: #d1d1d1;
+  font-size: 0.875rem;
+}
+
+/* Highlight menu item on hover */
+.menu-item:hover {
+  background-color: #1a1a1a;
+}
+
+/* Active menu item styling */
+.menu-item.active {
+  background-color: #1a1a1a;
+}
+
+/* Add spacing between groups of menu items with 'gap' */
+.menu-item.gap {
+  margin-top: 2.25rem;
+}
+
+/* Menu title styling */
+.menu-title {
+  transition: opacity 0.2s ease; /* Transition for hiding/showing menu title */
+}
+
+/* Hide menu title when sidebar is closed */
+.menu-title.hidden {
+  opacity: 0;
+}
