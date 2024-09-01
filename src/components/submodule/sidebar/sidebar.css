@@ -2,17 +2,19 @@
   position: fixed;
   top: 0;
   left: 0;
-  height: 100vh;  
-  width: 18rem;
-  background-color: black;
+  height: 100vh; /* Full viewport height */
+  width: 18rem; /* Initial width */
+  background-color: rgb(4, 5, 26);
   padding: 1.25rem;
   padding-top: 2rem;
-  transition: width 0.3s ease;
-  z-index: 1000;
+  transition: width 0.3s ease; /* Transition for width change */
+  z-index: 1000; /* Ensure it sits on top of other content */
+  border-radius: 15px;
+  margin: 1%;
 }
 
 .sidebar.closed {
-  width: 5rem; 
+  width: 10rem; /* Width when closed */
 }
 
 .toggle-btn {
