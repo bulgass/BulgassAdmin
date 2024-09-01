@@ -26,7 +26,7 @@ const Login = () => {
     <div className="login-card-container">
       <div className="login-card">
         <div className="login-card-logo">
-          <img src='logo.png' alt="logo" />
+          <img src={logo} alt="logo" />
         </div>
         <div className="login-card-header">
           <h1>Sign In</h1>
