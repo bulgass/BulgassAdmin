@@ -29,7 +29,7 @@ const Sidebar = () => {
           className={`smiley-icon ${open ? 'rotate' : ''}`}
           alt="Logo"
         />
-        <h1 className={`title ${!open ? 'hidden' : ''}`}>AdeCodes</h1>
+        <h1 className={`title ${!open ? 'hidden' : ''}`}>Bulgass</h1>
       </div>
       <ul className="menu-list">
         {Menus.map((Menu, index) => (
