@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import logo from '../../../../assets/logo.png';
 import { auth } from '../../../../firebase'; 
-import './Login.css';
+import './login.css';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -26,7 +26,7 @@ const Login = () => {
     <div className="login-card-container">
       <div className="login-card">
         <div className="login-card-logo">
-          <img src={logo} alt="logo" />
+          <img src='logo.png' alt="logo" />
         </div>
         <div className="login-card-header">
           <h1>Sign In</h1>

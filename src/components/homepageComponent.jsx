@@ -1,5 +1,5 @@
 import React from 'react';
-import './HomePage.css'; 
+import './homepage.css'; 
 import Sidebar from './submodule/sidebar/sidebar';
 
 const HomePage = () => {
