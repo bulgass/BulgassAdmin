@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import './sidebar.css'; 
+import './sidebar.css';
 
 const Sidebar = () => {
   const [open, setOpen] = useState(true);
+
   const Menus = [
     { title: 'Overview', src: 'Overview' },
     { title: 'Transactions', src: 'Transactions' },
@@ -15,34 +16,32 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className="sidebar">
-      <div className={`sidebar-container ${open ? 'open' : 'closed'}`}>
+    <div className={`sidebar ${open ? 'open' : 'closed'}`}>
+      <img
+        src="/assets/control.png"
+        className={`toggle-btn ${!open ? 'rotate-180' : ''}`}
+        onClick={() => setOpen(!open)}
+        alt="Toggle"
+      />
+      <div className="header">
         <img
-          src="/assets/control.png"
-          className={`toggle-btn ${!open && 'rotate-180'}`}
-          onClick={() => setOpen(!open)}
-          alt="Toggle"
+          src="/assets/smiley.svg"
+          className={`smiley-icon ${open ? 'rotate' : ''}`}
+          alt="Logo"
         />
-        <div className="header">
-          <img
-            src="/assets/smiley.svg"
-            className={`smiley-icon ${open && 'rotate'}`}
-            alt="Logo"
-          />
-          <h1 className={`title ${!open && 'hidden'}`}>AdeCodes</h1>
-        </div>
-        <ul className="menu-list">
-          {Menus.map((Menu, index) => (
-            <li
-              key={index}
-              className={`menu-item ${Menu.gap ? 'gap' : ''} ${index === 0 && 'active'}`}
-            >
-              <img src={`/assets/${Menu.src}.svg`} alt={Menu.title} />
-              <span className={`menu-title ${!open && 'hidden'}`}>{Menu.title}</span>
-            </li>
-          ))}
-        </ul>
+        <h1 className={`title ${!open ? 'hidden' : ''}`}>AdeCodes</h1>
       </div>
+      <ul className="menu-list">
+        {Menus.map((Menu, index) => (
+          <li
+            key={index}
+            className={`menu-item ${Menu.gap ? 'gap' : ''} ${index === 0 ? 'active' : ''}`}
+          >
+            <img src={`/assets/${Menu.src}.svg`} alt={Menu.title} />
+            <span className={`menu-title ${!open ? 'hidden' : ''}`}>{Menu.title}</span>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
