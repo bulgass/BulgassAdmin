@@ -3,28 +3,34 @@ version: '3'
 services:
   backend:
     build:
-      context: .  
-      dockerfile: server/Dockerfile 
+      context: . 
+      dockerfile: server/Dockerfile  
     container_name: backend
     ports:
       - "8000:8000"
     volumes:
-      - ./server:/app  
+      - backend-sync:/app 
     networks:
       - app-network
 
   frontend:
     build:
       context: .  
-      dockerfile: src/Dockerfile  
+      dockerfile: src/Dockerfile 
     container_name: frontend
     ports:
       - "3000:3000"
     volumes:
-      - ./src:/app 
+      - frontend-sync:/app  
     networks:
       - app-network
 
 networks:
   app-network:
     driver: bridge
+
+volumes:
+  backend-sync:
+    external: true
+  frontend-sync:
+    external: true

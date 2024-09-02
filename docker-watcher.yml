@@ -1,0 +1,12 @@
+version: '2'
+options:
+  verbose: true
+syncs:
+  backend-sync:
+    src: './server'
+    dest: '/app'
+    sync_strategy: 'unison'
+  frontend-sync:
+    src: './src'
+    dest: '/app'
+    sync_strategy: 'unison'

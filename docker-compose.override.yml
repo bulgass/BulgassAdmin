@@ -1,0 +1,21 @@
+version: '3'
+services:
+  frontend:
+    volumes:
+      - ./src:/app
+    ports:
+      - "3000:3000"  
+    environment:
+      - NODE_ENV=development
+    command: npm start  
+
+  backend:
+    volumes:
+      - ./server:/app
+    ports:
+      - "5000:5000"  # Порт для локального API
+    environment:
+      - NODE_ENV=development
+    command: npm run dev  
+
+volumes:
