@@ -110,3 +110,26 @@
   .student-card p {
     margin: 5px 0;
   }
+
+.edit-student-btn {
+  background-color: #8345cf;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s;
+}
+
+.edit-student-btn:hover {
+  background-color: #521f91;
+}
+
+.modal-content h2 {
+  color: white;
+}
+
+.modal-content form input {
+  border: 1px solid #ffffff;
+}

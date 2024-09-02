@@ -1,18 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import './studentList.css';
-import { collection, addDoc, getDocs, deleteDoc, doc } from 'firebase/firestore';
+import { collection, addDoc, getDocs, deleteDoc, doc, updateDoc } from 'firebase/firestore';
 import { db } from '../../../firebase';
 
 const StudentList = () => {
   const [showAddModal, setShowAddModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [showEditModal, setShowEditModal] = useState(false);
   const [selectedStudentId, setSelectedStudentId] = useState(null);
   const [name, setName] = useState('');
   const [course, setCourse] = useState('');
   const [paymentStatus, setPaymentStatus] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [students, setStudents] = useState([]);
+  const [currentStudent, setCurrentStudent] = useState(null);
+  const [editName, setEditName] = useState('');
+  const [editCourse, setEditCourse] = useState('');
+  const [editPaymentStatus, setEditPaymentStatus] = useState('');
+  const [editPhoneNumber, setEditPhoneNumber] = useState('');
 
   const navigate = useNavigate(); 
 
@@ -22,6 +28,15 @@ const StudentList = () => {
 
   const toggleDeleteModal = () => {
     setShowDeleteModal(!showDeleteModal);
+  };
+
+  const toggleEditModal = (student) => {
+    setCurrentStudent(student);
+    setEditName(student.name);
+    setEditCourse(student.course);
+    setEditPaymentStatus(student.paymentStatus);
+    setEditPhoneNumber(student.phoneNumber);
+    setShowEditModal(!showEditModal);
   };
 
   useEffect(() => {
@@ -71,6 +86,28 @@ const StudentList = () => {
       }
     } catch (error) {
       console.error('Error deleting student: ', error);
+    }
+  };
+
+  const handleEditStudent = async (e) => {
+    e.preventDefault();
+    if (currentStudent) {
+      try {
+        await updateDoc(doc(db, 'students', currentStudent.id), {
+          name: editName,
+          course: editCourse,
+          paymentStatus: editPaymentStatus,
+          phoneNumber: editPhoneNumber,
+        });
+        alert('Student successfully updated');
+        setShowEditModal(false);
+        // Refresh the student list
+        const querySnapshot = await getDocs(collection(db, 'students'));
+        const studentsList = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+        setStudents(studentsList);
+      } catch (error) {
+        console.error('Error updating student: ', error);
+      }
     }
   };
 
@@ -142,6 +179,46 @@ const StudentList = () => {
         </div>
       )}
 
+      {showEditModal && (
+        <div className="modal">
+          <div className="modal-content">
+            <span className="close-btn" onClick={() => setShowEditModal(false)}>&times;</span>
+            <h2>Edit Student Details</h2>
+            <form onSubmit={handleEditStudent}>
+              <input 
+                type="text" 
+                placeholder="Name" 
+                value={editName} 
+                onChange={(e) => setEditName(e.target.value)} 
+                required
+              />
+              <input 
+                type="text" 
+                placeholder="Course" 
+                value={editCourse} 
+                onChange={(e) => setEditCourse(e.target.value)} 
+                required
+              />
+              <input 
+                type="text" 
+                placeholder="Payment Status" 
+                value={editPaymentStatus} 
+                onChange={(e) => setEditPaymentStatus(e.target.value)} 
+                required
+              />
+              <input 
+                type="tel" 
+                placeholder="Phone Number" 
+                value={editPhoneNumber} 
+                onChange={(e) => setEditPhoneNumber(e.target.value)} 
+                required
+              />
+              <button type="submit" className="submit-btn">Update</button>
+            </form>
+          </div>
+        </div>
+      )}
+
       <div className="student-list">
         {students.map((student) => (
           <div className="student-card" key={student.id}>
@@ -149,6 +226,7 @@ const StudentList = () => {
             <p><strong>Course:</strong> {student.course}</p>
             <p><strong>Payment Status:</strong> {student.paymentStatus}</p>
             <p><strong>Phone:</strong> {student.phoneNumber}</p>
+            <button className="edit-student-btn" onClick={() => toggleEditModal(student)}>Edit</button>
           </div>
         ))}
       </div>
