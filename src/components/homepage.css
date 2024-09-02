@@ -2,22 +2,48 @@
     font-family: Arial, sans-serif;
     padding: 20px;
     position: relative;
-    left:230px;
+    left:20px;
     font-size: 1.25rem;
+    
   }
-.calendar{
-  display: grid;
-  grid-template-columns: repeat(7, 200px);
-  grid-template-rows: 50px repeat(5, 100px);
-  grid-gap:10px;
+  .calendar {
+    width: 300px;
+    margin: 0 auto;
+  }
+  
+  .header {
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
-.week-day{
-  color: gray;
-  margin-left: 30px;
+
+.days-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 150px);
+    grid-template-rows: 80px repeat(5, 150px);
+    grid-gap: 15px;
 }
-.number{
-  padding: 1rem;
-  background-color: rgb(50, 50, 88);
-  border-radius: 15px;
+
+.day-name, .day {
+    padding: 15px;
+    border-radius: 15px;
+}
+.day{
   box-shadow: 10px 10px black;
+}
+.current-month {
+    background-color: #4d479e;
+}
+
+.other-month {
+    background-color: #4d479e;
+    color: #aaa;
+}
+.btn-calendar{
+  padding: 10px;
+  background-color: #4d479e;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
 }
