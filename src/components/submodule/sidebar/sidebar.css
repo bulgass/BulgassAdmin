@@ -24,9 +24,10 @@
   right: -1.5rem;
   top: 2rem;
   width: 1.75rem;
-  border: 2px solid #6e2c6c;
+  height: 1.75rem;
+  border: none;
   border-radius: 50%;
-  background-color: white; 
+  background-color: rgb(255, 255, 255); 
   z-index: 1001;
 }
 
@@ -42,6 +43,7 @@
 
 .smiley-icon.rotate {
   transform: rotate(360deg);
+  color: azure;
 }
 
 .title {
@@ -73,7 +75,7 @@
   background-color: #1a1a1a;
 }
 
-.menu-item.active {
+.menu-item:active {
   background-color: #1a1a1a;
 }
 
