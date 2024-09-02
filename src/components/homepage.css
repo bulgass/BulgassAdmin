@@ -1,45 +1,23 @@
 .home-page {
     font-family: Arial, sans-serif;
     padding: 20px;
-    margin-left: 200px;
+    position: relative;
+    left:230px;
+    font-size: 1.25rem;
   }
-  
-  .title {
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 2rem;
-    color: #333;
-  }
-  
-  .timetable {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    border-collapse: collapse;
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
-  .timetable-header, .timetable-row {
-    display: contents;
-  }
-  
-  .timetable-header {
-    background-color: #f4f4f4;
-    font-weight: bold;
-  }
-  
-  .time-slot, .event-slot {
-    padding: 10px;
-    border: 1px solid #ddd;
-  }
-  
-  .timetable-row:nth-child(even) .time-slot,
-  .timetable-row:nth-child(even) .event-slot {
-    background-color: #f9f9f9;
-  }
-  
-  .timetable-row:hover .time-slot,
-  .timetable-row:hover .event-slot {
-    background-color: #e0e0e0;
-  }
+.calendar{
+  display: grid;
+  grid-template-columns: repeat(7, 200px);
+  grid-template-rows: 50px repeat(5, 100px);
+  grid-gap:10px;
+}
+.week-day{
+  color: gray;
+  margin-left: 30px;
+}
+.number{
+  padding: 1rem;
+  background-color: rgb(50, 50, 88);
+  border-radius: 15px;
+  box-shadow: 10px 10px black;
+}
