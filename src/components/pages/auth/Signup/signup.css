@@ -1,4 +1,8 @@
-
+.container-signup{
+  justify-content: center;
+  align-content: center;
+  height: 1000px;
+}
 .signup-card-container {
     display: flex;
     flex-direction: column;
@@ -91,7 +95,7 @@
     outline: none;
     background: rgba(255, 255, 255, .3);
     padding: 1rem 1.5rem;
-    padding-left: calc(1rem * 3.5);
+    padding-left: calc(1rem * 1.5);
     border-radius: 100px;
     width: 100%;
     transition: background .5s;

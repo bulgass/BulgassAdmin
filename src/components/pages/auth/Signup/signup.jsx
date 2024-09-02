@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import {auth} from '../../../../firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import './signup.css';
+import logo from '../../../../assets/logo.png';
 
 const Signup = () => {
   const [email, setEmail] = useState('');
@@ -24,8 +25,12 @@ const Signup = () => {
   };
 
   return (
+    <div className="container-signup">
     <div className="signup-card-container">
       <div className="signup-card">
+      <div className="login-card-logo">
+          <img src={logo} alt="logo" />
+        </div>
         <div className="signup-card-header">
           <h1>Sign Up</h1>
           <div>Create a new account</div>
@@ -70,6 +75,7 @@ const Signup = () => {
           Already have an account? <a href="/login">Sign in</a>
         </div>
       </div>
+    </div>
     </div>
   );
 };

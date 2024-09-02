@@ -23,6 +23,7 @@ const Login = () => {
   };
 
   return (
+    <div className="container-login">
     <div className="login-card-container">
       <div className="login-card">
         <div className="login-card-logo">
@@ -67,6 +68,7 @@ const Login = () => {
           Don't have an account? <a href="/signup">Create a free account.</a>
         </div>
       </div>
+    </div>
     </div>
   );
 };
