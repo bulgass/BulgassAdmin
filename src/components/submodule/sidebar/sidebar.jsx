@@ -13,6 +13,7 @@ const Sidebar = () => {
   const Menus = [
     { title: 'Login', path:'/login', src: logo },
     { title: 'Signup', path:'/signup', src: logo },
+    { title: 'Student List', path:'/studentList', src: logo},
 
   ];
 
