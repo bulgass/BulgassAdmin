@@ -73,6 +73,7 @@
 
 .menu-item:hover {
   background-color: #1a1a1a;
+  border-radius: 25px;
 }
 
 .menu-item:active {
