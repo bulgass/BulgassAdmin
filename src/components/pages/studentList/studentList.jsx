@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'; 
 import './studentList.css';
 import { collection, addDoc, getDocs, deleteDoc, doc } from 'firebase/firestore';
 import { db } from '../../../firebase';
@@ -12,6 +13,8 @@ const StudentList = () => {
   const [paymentStatus, setPaymentStatus] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [students, setStudents] = useState([]);
+
+  const navigate = useNavigate(); 
 
   const toggleAddModal = () => {
     setShowAddModal(!showAddModal);
@@ -80,6 +83,7 @@ const StudentList = () => {
       <section className="button-section">
         <button className="add-student-btn" onClick={toggleAddModal}>Add Student</button>
         <button className="delete-student-btn" onClick={toggleDeleteModal}>Delete Student</button>
+        <button className="back-home-btn" onClick={() => navigate('/')}>Back to Home</button> {/* Back button */}
       </section>
 
       {showAddModal && (
@@ -126,7 +130,7 @@ const StudentList = () => {
         <div className="modal">
           <div className="modal-content">
             <span className="close-btn" onClick={toggleDeleteModal}>&times;</span>
-            <h2>Select Student to Delete</h2>
+            <h2>Delete Student</h2>
             <select onChange={(e) => setSelectedStudentId(e.target.value)} value={selectedStudentId}>
               <option value="">Select a student</option>
               {students.map((student) => (

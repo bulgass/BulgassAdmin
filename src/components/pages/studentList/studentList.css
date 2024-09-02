@@ -17,8 +17,8 @@
     margin-bottom: 20px;
   }
   
-  .add-student-btn, .delete-student-btn {
-    background-color: #4CAF50;
+  .add-student-btn, .delete-student-btn, .back-home-btn {
+    background-color: #8345cf;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -28,8 +28,8 @@
     margin: 0 10px;
   }
   
-  .add-student-btn:hover, .delete-student-btn:hover {
-    background-color: #2d7431;
+  .add-student-btn:hover, .delete-student-btn:hover, .back-home-btn:hover {
+    background-color: #521f91;
   }
   
   .modal {
@@ -46,9 +46,9 @@
   }
   
   .modal-content {
-    background-color: white;
+    background-color: #8345cf;
     padding: 20px;
-    border-radius: 5px;
+    border-radius: 15px;
     text-align: left;
     width: 400px;
     position: relative;
@@ -66,27 +66,33 @@
     width: 100%;
     padding: 10px;
     margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    margin-left: -10px;
+    border: 1px solid #000000;
+    border-radius: 10px;
+  }
+
+  select{
+    margin-left: 0px;
   }
   
   .submit-btn {
     width: 100%;
-    background-color: #4CAF50;
+    background-color: #8345cf;
     color: white;
     padding: 10px;
     border: none;
-    border-radius: 5px;
+    border-radius: 15px;
     cursor: pointer;
     font-size: 1rem;
   }
   
   .submit-btn:hover {
-    background-color: #45a049;
+    background-color: #521f91;
   }
   
-  .student-card {
-    background-color: #3196de;
+  .student-card { 
+    background-color: #0093E9;
+    background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
     padding: 35px;
     border: 1px solid #000000;
     border-radius: 15px;

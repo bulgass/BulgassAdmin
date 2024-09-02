@@ -4,7 +4,7 @@
   left: 0;
   height: 100vh; /* Full viewport height */
   width: 18rem; /* Initial width */
-  background-color: rgb(4, 5, 26);
+  background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
   padding: 1.25rem;
   padding-top: 2rem;
   transition: width 0.3s ease; /* Transition for width change */
