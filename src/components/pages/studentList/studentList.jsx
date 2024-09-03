@@ -63,7 +63,6 @@ const StudentList = () => {
       setCourse('');
       setPaymentStatus('');
       setPhoneNumber('');
-      // Refresh the student list
       const querySnapshot = await getDocs(collection(db, 'students'));
       const studentsList = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
       setStudents(studentsList);
@@ -79,7 +78,6 @@ const StudentList = () => {
         alert('Student successfully deleted');
         setSelectedStudentId(null);
         toggleDeleteModal();
-        // Refresh the student list
         const querySnapshot = await getDocs(collection(db, 'students'));
         const studentsList = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
         setStudents(studentsList);
@@ -101,7 +99,6 @@ const StudentList = () => {
         });
         alert('Student successfully updated');
         setShowEditModal(false);
-        // Refresh the student list
         const querySnapshot = await getDocs(collection(db, 'students'));
         const studentsList = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
         setStudents(studentsList);
