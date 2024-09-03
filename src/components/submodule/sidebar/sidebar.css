@@ -1,28 +1,29 @@
 .sidebar {
+  display: flex;
+  align-items: end;
   position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh; /* Full viewport height */
-  width: 18rem; /* Initial width */
-  background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
-  padding: 1.25rem;
+  bottom: 0;
+  height: auto; /* Full viewport height */
+  width: 100%; /* Initial width */
+  background-image: linear-gradient(to left, #30cfd0 0%, #330867 100%);
+  padding: 1rem;
   padding-top: 2rem;
-  transition: width 0.3s ease; /* Transition for width change */
+  transition: height 0.3s ease; /* Transition for width change */
   z-index: 1000; /* Ensure it sits on top of other content */
   border-radius: 15px;
-  margin: 1%;
+  margin-left: -3%;
   box-shadow: 10px 15px 15px black;
 }
 
 .sidebar.closed {
-  width: 10rem; /* Width when closed */
+  height: 10%; /* Width when closed */
 }
 
 .toggle-btn {
   position: absolute;
   cursor: pointer;
-  right: -1.5rem;
-  top: 2rem;
+  right: 0rem;
+  top: 0rem;
   width: 1.75rem;
   height: 1.75rem;
   border: none;
@@ -32,7 +33,7 @@
 }
 
 .sidebar.closed .toggle-btn {
-  right: -2.5rem;
+  top: -2rem;
 }
 
 .header {
@@ -58,11 +59,14 @@
 }
 
 .menu-list {
-  padding-top: 1.5rem;
+  margin-left: 100px;
+  column-gap: 80px;
+  display: flex;
 }
 
 .menu-item {
   display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 1rem;
   padding: 0.5rem;
