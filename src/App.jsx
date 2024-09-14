@@ -5,6 +5,7 @@ import Login from "./components/pages/auth/Login/login"
 import Signup from "./components/pages/auth/Signup/signup";
 import Home from "./components/homepage";
 import StudentList from "./components/pages/studentList/studentList";
+import Statistics from "./components/pages/statistics/statistics";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -32,6 +33,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />
               <Route path="/studentList" element={<StudentList />} />
+              <Route path="/statistics" element={<Statistics/>} />
             </>
           ) : (
             <>

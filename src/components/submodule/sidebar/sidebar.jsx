@@ -14,6 +14,7 @@ const Sidebar = () => {
     { title: 'Login', path:'/login', src: loginIcon },
     { title: 'Signup', path:'/signup', src: signupIcon },
     { title: 'Student List', path:'/studentList', src: studentIcon},
+    { title: 'Students statistics ', path: '/statistics', src: studentIcon} 
 
   ];
 
