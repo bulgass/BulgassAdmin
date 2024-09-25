@@ -26,7 +26,7 @@ const HomePage = () => {
     const fetchData = async () => {
       const month = currentDate.getMonth() + 1; 
       const year = currentDate.getFullYear();
-      const calendarCollection = collection(db, 'calendar');
+      const calendarCollection = collection(db, 'days-grid');
       const snapshot = await getDocs(calendarCollection);
         
       const data = {};
@@ -54,7 +54,7 @@ const HomePage = () => {
     };
 
     const docId = `${selectedDay}-${currentDate.getMonth() + 1}-${currentDate.getFullYear()}`;
-    const dayDoc = doc(db, 'calendar', docId);
+    const dayDoc = doc(db, 'days-grid', docId);
     
     await setDoc(dayDoc, dayData); 
     
@@ -100,7 +100,7 @@ const HomePage = () => {
           {['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'].map((dayName) => (
             <div className="day-name" key={dayName}>{dayName}</div>
           ))}
-          {Array.from({ length: 42 }).map((_, index) => {
+          {Array.from({ length: 35 }).map((_, index) => {
             const day = index - new Date(currentDate.getFullYear(), currentDate.getMonth(), 1).getDay() + 1;
             return (
               <Day

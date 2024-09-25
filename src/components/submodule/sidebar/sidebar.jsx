@@ -20,22 +20,15 @@ const Sidebar = () => {
   return (
     <div className={`sidebar ${open ? 'open' : 'closed'}`}>
       <img
-        src=".//"
+        src={BulgassLogo}
         className={`toggle-btn ${!open ? 'rotate-180' : ''}`}
         onClick={() => setOpen(!open)}
         alt="Toggle"
       />
-      <div className="header">
-        <img
-          src={BulgassLogo}
-          className={`smiley-icon ${open ? 'rotate' : ''}`} width={60}
-          alt="Logo"
-        />
-        <h1 className={`title ${!open ? 'hidden' : ''}`}>Bulgass</h1>
-      </div>
+
       <ul className="menu-list">
         {Menus.map((Menu, index) => (
-          <Link to={Menu.path} className="menu-link"> 
+          <Link to={Menu.path} className="menu-link"  key={Menu.title}> 
           <li
             key={index}
             className={`menu-item ${Menu.gap ? 'gap' : ''} ${index === 0 ? 'active' : ''}`}
